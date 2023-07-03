@@ -1,0 +1,469 @@
+Analysis & Synthesis report for top_uart
+Thu Jun 08 19:21:21 2023
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |top_uart|rx:TTL_rx|rx_state
+  9. State Machine - |top_uart|tx:TTL_tx|tx_state
+ 10. State Machine - |top_uart|debounce:ps_load|state
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: debounce:ps_load
+ 17. Port Connectivity Checks: "rx:TTL_rx"
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Jun 08 19:21:21 2023      ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                      ; top_uart                                   ;
+; Top-level Entity Name              ; top_uart                                   ;
+; Family                             ; Cyclone III                                ;
+; Total logic elements               ; 194                                        ;
+;     Total combinational functions  ; 193                                        ;
+;     Dedicated logic registers      ; 116                                        ;
+; Total registers                    ; 116                                        ;
+; Total pins                         ; 43                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP3C16F484C6       ;                    ;
+; Top-level entity name                                                      ; top_uart           ; top_uart           ;
+; Family name                                                                ; Cyclone III        ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-8         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                               ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                 ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------+---------+
+; ../src/rtl/fnd_encorder.v        ; yes             ; User Verilog HDL File  ; C:/verilog/git_basic2023/lab02_tlqkf/src/rtl/fnd_encorder.v  ;         ;
+; ../src/rtl/bit8_encorder.v       ; yes             ; User Verilog HDL File  ; C:/verilog/git_basic2023/lab02_tlqkf/src/rtl/bit8_encorder.v ;         ;
+; ../src/rtl/tx.v                  ; yes             ; User Verilog HDL File  ; C:/verilog/git_basic2023/lab02_tlqkf/src/rtl/tx.v            ;         ;
+; ../src/rtl/top_uart.v            ; yes             ; User Verilog HDL File  ; C:/verilog/git_basic2023/lab02_tlqkf/src/rtl/top_uart.v      ;         ;
+; ../src/rtl/rx_price.v            ; yes             ; User Verilog HDL File  ; C:/verilog/git_basic2023/lab02_tlqkf/src/rtl/rx_price.v      ;         ;
+; ../src/rtl/rx.v                  ; yes             ; User Verilog HDL File  ; C:/verilog/git_basic2023/lab02_tlqkf/src/rtl/rx.v            ;         ;
+; ../src/rtl/gen_ex.v              ; yes             ; User Verilog HDL File  ; C:/verilog/git_basic2023/lab02_tlqkf/src/rtl/gen_ex.v        ;         ;
+; ../src/rtl/edge_detecte.v        ; yes             ; User Verilog HDL File  ; C:/verilog/git_basic2023/lab02_tlqkf/src/rtl/edge_detecte.v  ;         ;
+; ../src/rtl/debounce.v            ; yes             ; User Verilog HDL File  ; C:/verilog/git_basic2023/lab02_tlqkf/src/rtl/debounce.v      ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 194       ;
+;                                             ;           ;
+; Total combinational functions               ; 193       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 84        ;
+;     -- 3 input functions                    ; 27        ;
+;     -- <=2 input functions                  ; 82        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 145       ;
+;     -- arithmetic mode                      ; 48        ;
+;                                             ;           ;
+; Total registers                             ; 116       ;
+;     -- Dedicated logic registers            ; 116       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 43        ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 116       ;
+; Total fan-out                               ; 1078      ;
+; Average fan-out                             ; 2.73      ;
++---------------------------------------------+-----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                       ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+--------------+
+; Compilation Hierarchy Node  ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name              ; Library Name ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+--------------+
+; |top_uart                   ; 193 (0)           ; 116 (0)      ; 0           ; 0            ; 0       ; 0         ; 43   ; 0            ; |top_uart                        ; work         ;
+;    |bit8_encorder:bit8_en|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_uart|bit8_encorder:bit8_en  ; work         ;
+;    |debounce:ps_load|       ; 7 (7)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_uart|debounce:ps_load       ; work         ;
+;    |edge_detecte:edge_load| ; 0 (0)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_uart|edge_detecte:edge_load ; work         ;
+;    |gen_ex:gen_enable|      ; 45 (45)           ; 25 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_uart|gen_ex:gen_enable      ; work         ;
+;    |tx:TTL_tx|              ; 134 (134)         ; 84 (84)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_uart|tx:TTL_tx              ; work         ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------+
+; State Machine - |top_uart|rx:TTL_rx|rx_state                  ;
++---------------+---------------+---------------+---------------+
+; Name          ; rx_state.IDLE ; rx_state.STOP ; rx_state.DATA ;
++---------------+---------------+---------------+---------------+
+; rx_state.IDLE ; 0             ; 0             ; 0             ;
+; rx_state.DATA ; 1             ; 0             ; 1             ;
+; rx_state.STOP ; 1             ; 1             ; 0             ;
++---------------+---------------+---------------+---------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |top_uart|tx:TTL_tx|tx_state                                                    ;
++----------------+---------------+---------------+----------------+---------------+---------------+
+; Name           ; tx_state.STOP ; tx_state.DATA ; tx_state.START ; tx_state.IDLE ; tx_state.WAIT ;
++----------------+---------------+---------------+----------------+---------------+---------------+
+; tx_state.IDLE  ; 0             ; 0             ; 0              ; 0             ; 0             ;
+; tx_state.START ; 0             ; 0             ; 1              ; 1             ; 0             ;
+; tx_state.DATA  ; 0             ; 1             ; 0              ; 1             ; 0             ;
+; tx_state.STOP  ; 1             ; 0             ; 0              ; 1             ; 0             ;
+; tx_state.WAIT  ; 0             ; 0             ; 0              ; 1             ; 1             ;
++----------------+---------------+---------------+----------------+---------------+---------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------+
+; State Machine - |top_uart|debounce:ps_load|state                           ;
++---------------+---------------+--------------+---------------+-------------+
+; Name          ; state.S_WAIT1 ; state.S_ZERO ; state.S_WAIT0 ; state.S_ONE ;
++---------------+---------------+--------------+---------------+-------------+
+; state.S_ONE   ; 0             ; 0            ; 0             ; 0           ;
+; state.S_WAIT0 ; 0             ; 0            ; 1             ; 1           ;
+; state.S_ZERO  ; 0             ; 1            ; 0             ; 1           ;
+; state.S_WAIT1 ; 1             ; 0            ; 0             ; 1           ;
++---------------+---------------+--------------+---------------+-------------+
+
+
++---------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                        ;
++----------------------------------------+----------------------------------+
+; Register name                          ; Reason for Removal               ;
++----------------------------------------+----------------------------------+
+; rx:TTL_rx|fnd_rxd[0..7]                ; Lost fanout                      ;
+; tx:TTL_tx|led_blink2                   ; Merged with tx:TTL_tx|led_blink1 ;
+; tx:TTL_tx|led_blink3                   ; Merged with tx:TTL_tx|led_blink1 ;
+; rx:TTL_rx|rx_state~6                   ; Lost fanout                      ;
+; tx:TTL_tx|tx_state~4                   ; Lost fanout                      ;
+; tx:TTL_tx|tx_state~5                   ; Lost fanout                      ;
+; debounce:ps_load|state~4               ; Lost fanout                      ;
+; debounce:ps_load|state~5               ; Lost fanout                      ;
+; rx:TTL_rx|rx_cnt[0..3]                 ; Lost fanout                      ;
+; rx:TTL_rx|rx_state.DATA                ; Lost fanout                      ;
+; rx:TTL_rx|rx_state.STOP                ; Lost fanout                      ;
+; rx:TTL_rx|rx_state.IDLE                ; Lost fanout                      ;
+; Total Number of Removed Registers = 22 ;                                  ;
++----------------------------------------+----------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                         ;
++----------------------+--------------------+-----------------------------------------------------------------------------------------+
+; Register name        ; Reason for Removal ; Registers Removed due to This Register                                                  ;
++----------------------+--------------------+-----------------------------------------------------------------------------------------+
+; rx:TTL_rx|fnd_rxd[0] ; Lost Fanouts       ; rx:TTL_rx|fnd_rxd[1], rx:TTL_rx|fnd_rxd[2], rx:TTL_rx|fnd_rxd[3], rx:TTL_rx|fnd_rxd[4], ;
+;                      ;                    ; rx:TTL_rx|fnd_rxd[5], rx:TTL_rx|fnd_rxd[6], rx:TTL_rx|fnd_rxd[7]                        ;
+; rx:TTL_rx|rx_cnt[1]  ; Lost Fanouts       ; rx:TTL_rx|rx_cnt[3], rx:TTL_rx|rx_cnt[2]                                                ;
+; rx:TTL_rx|rx_cnt[0]  ; Lost Fanouts       ; rx:TTL_rx|rx_state.IDLE                                                                 ;
++----------------------+--------------------+-----------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 116   ;
+; Number of registers using Synchronous Clear  ; 2     ;
+; Number of registers using Synchronous Load   ; 8     ;
+; Number of registers using Asynchronous Clear ; 116   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 94    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; tx:TTL_tx|txd                          ; 2       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_uart|tx:TTL_tx|cnt_4[1]      ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_uart|tx:TTL_tx|cnt_blink[1]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |top_uart|tx:TTL_tx|data_8[2]     ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |top_uart|tx:TTL_tx|data_8[0]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |top_uart|tx:TTL_tx|shift_data[0] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |top_uart|rx:TTL_rx|rx_n_cnt[0]   ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |top_uart|tx:TTL_tx|tx_n_cnt[3]   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce:ps_load ;
++----------------+----------------------+-----------------------+
+; Parameter Name ; Value                ; Type                  ;
++----------------+----------------------+-----------------------+
+; N              ; 1                    ; Signed Integer        ;
+; T_20MS         ; 00000000000110010000 ; Unsigned Binary       ;
+; D_INIT         ; 0                    ; Unsigned Binary       ;
++----------------+----------------------+-----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "rx:TTL_rx"                                                                                                    ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                  ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; led_idle1 ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Thu Jun 08 19:21:20 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top_uart -c top_uart
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (12021): Found 1 design units, including 1 entities, in source file /verilog/git_basic2023/lab02_tlqkf/src/rtl/fnd_encorder.v
+    Info (12023): Found entity 1: fnd_encorder
+Info (12021): Found 1 design units, including 1 entities, in source file /verilog/git_basic2023/lab02_tlqkf/src/rtl/bit8_encorder.v
+    Info (12023): Found entity 1: bit8_encorder
+Info (12021): Found 1 design units, including 1 entities, in source file /verilog/git_basic2023/lab02_tlqkf/src/rtl/tx.v
+    Info (12023): Found entity 1: tx
+Info (12021): Found 1 design units, including 1 entities, in source file /verilog/git_basic2023/lab02_tlqkf/src/rtl/top_uart.v
+    Info (12023): Found entity 1: top_uart
+Info (12021): Found 1 design units, including 1 entities, in source file /verilog/git_basic2023/lab02_tlqkf/src/rtl/sw.v
+    Info (12023): Found entity 1: sw
+Info (12021): Found 1 design units, including 1 entities, in source file /verilog/git_basic2023/lab02_tlqkf/src/rtl/rx_price.v
+    Info (12023): Found entity 1: rx_price
+Info (12021): Found 1 design units, including 1 entities, in source file /verilog/git_basic2023/lab02_tlqkf/src/rtl/rx.v
+    Info (12023): Found entity 1: rx
+Info (12021): Found 1 design units, including 1 entities, in source file /verilog/git_basic2023/lab02_tlqkf/src/rtl/remain.v
+    Info (12023): Found entity 1: led
+Info (12021): Found 1 design units, including 1 entities, in source file /verilog/git_basic2023/lab02_tlqkf/src/rtl/gen_ex.v
+    Info (12023): Found entity 1: gen_ex
+Info (12021): Found 1 design units, including 1 entities, in source file /verilog/git_basic2023/lab02_tlqkf/src/rtl/edge_detecte.v
+    Info (12023): Found entity 1: edge_detecte
+Info (12021): Found 1 design units, including 1 entities, in source file /verilog/git_basic2023/lab02_tlqkf/src/rtl/debounce.v
+    Info (12023): Found entity 1: debounce
+Info (12127): Elaborating entity "top_uart" for the top level hierarchy
+Info (12128): Elaborating entity "debounce" for hierarchy "debounce:ps_load"
+Info (12128): Elaborating entity "edge_detecte" for hierarchy "edge_detecte:edge_load"
+Info (12128): Elaborating entity "bit8_encorder" for hierarchy "bit8_encorder:bit8_en"
+Info (10264): Verilog HDL Case Statement information at bit8_encorder.v(13): all case item expressions in this case statement are onehot
+Info (12128): Elaborating entity "gen_ex" for hierarchy "gen_ex:gen_enable"
+Info (12128): Elaborating entity "tx" for hierarchy "tx:TTL_tx"
+Info (12128): Elaborating entity "rx" for hierarchy "rx:TTL_rx"
+Info (12128): Elaborating entity "rx_price" for hierarchy "rx_price:price"
+Info (10264): Verilog HDL Case Statement information at rx_price.v(20): all case item expressions in this case statement are onehot
+Info (12128): Elaborating entity "fnd_encorder" for hierarchy "fnd_encorder:fnd_price_0"
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "fnd_rxd_top[0]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_top[1]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_top[2]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_top[3]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_top[4]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_top[5]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_top[6]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_1[0]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_1[1]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_1[2]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_1[3]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_1[4]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_1[5]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_1[6]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_2[0]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_2[1]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_2[2]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_2[3]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_2[4]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_2[5]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_2[6]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_3[0]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_3[1]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_3[2]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_3[3]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_3[4]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_3[5]" is stuck at VCC
+    Warning (13410): Pin "fnd_rxd_3[6]" is stuck at VCC
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 20 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "rxd"
+Info (21057): Implemented 243 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 34 output pins
+    Info (21061): Implemented 200 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 32 warnings
+    Info: Peak virtual memory: 4641 megabytes
+    Info: Processing ended: Thu Jun 08 19:21:21 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

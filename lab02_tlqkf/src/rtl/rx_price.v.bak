@@ -1,0 +1,39 @@
+module rx_price(
+    clk,
+    n_rst,
+    data_in,
+    din_1,
+    data_out
+);
+
+input clk;
+input n_rst;
+input [7:0] data_in;
+input [3:0] din_1;
+
+output [7:0] data_out;
+
+always@(posedge clk or negedge n_rst)
+    if(!n_rst) begin
+        data_out <= 8'b0;
+    end
+    else begin
+        // sw0 일때 coke값 출력
+        if(din_1 == 0 && data_in == 8'h40) begin
+            data_out <= 8'h31_38_30_30;
+        end
+        // sw1 일때 soda값 출력
+        else if(din_1 == 1 && data_in == 8'h64) begin
+            data_out <= 8'h31_35_30_30;
+        end
+        // sw2 일때 soju값 출력
+        else if(din_1 == 2 && data_in == 8'h64) begin
+            data_out <= 8'h31_39_30_30;
+        end
+        //sw3 일때 beer값 출력
+        else if(din_1 == 3 && data_in == 8'h64) begin
+            data_out <= 8'h32_35_30_30;
+        end
+    end
+
+endmodule

@@ -1,0 +1,21 @@
+
+State Machine - |top_uart|rx:TTL_rx|rx_state
+Name rx_state.IDLE rx_state.STOP rx_state.DATA 
+rx_state.IDLE 0 0 0 
+rx_state.DATA 1 0 1 
+rx_state.STOP 1 1 0 
+
+State Machine - |top_uart|tx:TTL_tx|tx_state
+Name tx_state.STOP tx_state.DATA tx_state.START tx_state.IDLE tx_state.WAIT 
+tx_state.IDLE 0 0 0 0 0 
+tx_state.START 0 0 1 1 0 
+tx_state.DATA 0 1 0 1 0 
+tx_state.STOP 1 0 0 1 0 
+tx_state.WAIT 0 0 0 1 1 
+
+State Machine - |top_uart|debounce:ps_load|state
+Name state.S_WAIT1 state.S_ZERO state.S_WAIT0 state.S_ONE 
+state.S_ONE 0 0 0 0 
+state.S_WAIT0 0 0 1 1 
+state.S_ZERO 0 1 0 1 
+state.S_WAIT1 1 0 0 1 
