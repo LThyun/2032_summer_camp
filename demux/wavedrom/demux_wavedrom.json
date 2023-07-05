@@ -1,0 +1,11 @@
+{signal: [
+  {},
+  {name: 	 'din', wave: 'h...................'},
+  {name:     'a', wave: 'l.........h.........'},
+  {name:     'b', wave: 'l....h....l....h....'},
+  
+  {name: 	 'aout', wave: 'l..............h....'},
+  {name: 	 'bout', wave: 'l.........h....l....'},
+  {name: 	 'cout', wave: 'l....h....l.........'},
+  {name: 	 'dout', wave: 'h....l..............'},
+]}
