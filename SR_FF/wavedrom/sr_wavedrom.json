@@ -1,0 +1,12 @@
+{signal: [
+  {name:   'clk', wave: 'P.............'},
+  {name: 'n_rst', wave: 'lnh...........'},
+  {},
+  {name: 	 's', wave: 'l.nhplnh..pl..'},
+  {name:     'r', wave: 'l...nh..pl....'},
+  {},
+  {name:     'q', wave: 'x...h.l.Z.h...'},
+  {name:     'q_bar', wave: 'x...l.h.Z.l...'}
+
+
+]}
