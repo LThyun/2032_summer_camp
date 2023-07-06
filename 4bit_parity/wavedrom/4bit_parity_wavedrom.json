@@ -1,0 +1,5 @@
+{signal: [
+  {name:         'data', wave: '=..........',data: ["1010"]},
+  {},
+  {name:  'even_parity', wave: '0..........'},
+]}
