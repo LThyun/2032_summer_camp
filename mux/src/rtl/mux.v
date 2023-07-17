@@ -16,18 +16,18 @@ output reg [3:0] dout;
 
 always @(*)begin
     if(y == 2'b00) begin
-        dout <= a;
+        dout = a;
     end
     else if(y == 2'b01) begin
-        dout <= b;
+        dout = b;
     end
     else if(y == 2'b10) begin
-        dout <= c;
+        dout = c;
     end
     else if(y == 2'b11) begin
-        dout <= d;
+        dout = d;
     end
-    else dout <= 4'bxxxx;
+    else dout = 4'bxxxx;
     end
 
 endmodule
