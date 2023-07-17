@@ -1,19 +1,12 @@
-module full_adder(   //1bit
+module full_adder(   
     input a,
     input b,
+    input c_in,
     output s,
-    output c
+    output c_out
 );
-reg c_out;
 
-assign s = a^b;
-assign c = c_out;
-
-always @(*) begin
-    if((a == 1'b1)&(b == 1'b1))
-    c_out = 1'b1;
-    else
-    c_out = 1'b0;
-end
+assign s = (a^b)^c_in;
+assign c_out = c_in & (a ^ b) | (a & b);
 
 endmodule
